@@ -3,11 +3,8 @@ package com.sss.live.data.demo;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -15,10 +12,7 @@ import android.widget.Toast;
 import com.sss.live.data.demo.databinding.ActivityMainBinding;
 import com.sss.live.data.demo.db.DatabaseCreator;
 import com.sss.live.data.demo.db.entity.UserEntity;
-import com.sss.live.data.demo.model.User;
 import com.sss.live.data.demo.viewmodel.UserViewModel;
-
-import java.util.List;
 
 public class MainActivity extends LifecycleActivity implements View.OnClickListener {
     private DatabaseCreator creator;

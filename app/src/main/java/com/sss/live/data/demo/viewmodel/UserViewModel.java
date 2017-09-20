@@ -10,9 +10,6 @@ import android.util.Log;
 
 import com.sss.live.data.demo.db.DatabaseCreator;
 import com.sss.live.data.demo.db.entity.UserEntity;
-import com.sss.live.data.demo.model.User;
-
-import java.util.List;
 
 
 /**

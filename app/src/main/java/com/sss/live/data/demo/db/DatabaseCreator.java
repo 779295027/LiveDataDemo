@@ -62,7 +62,7 @@ public class DatabaseCreator {
     /**
      * 创建数据库实例，即AppDatabase的实例
      *
-     * @param context
+     * @param context 上下文
      */
     public void create(Context context) {
         Log.e("DatabaseCreator", "开始运行创建数据库方法");
