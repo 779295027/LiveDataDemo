@@ -1,5 +1,6 @@
 package com.sss.live.data.demo.db.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -20,7 +21,11 @@ public interface UserDao {
      */
     @Query("SELECT * FROM user")
     List<UserEntity> getAll();
-
+    /**
+     * 查询所有的用户
+     */
+    @Query("SELECT * FROM user limit 0,1 ")
+    LiveData<UserEntity> getTopOne();
     /**
      * 根据ID查询某个用户
      *
