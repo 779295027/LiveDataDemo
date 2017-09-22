@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.sss.live.data.demo.db.entity.UserEntity;
@@ -20,14 +21,23 @@ public interface UserDao {
      * 查询所有的用户
      */
     @Query("SELECT * FROM user")
-    List<UserEntity> getAll();
+    LiveData<List<UserEntity>> getAll();
+
     /**
-     * 查询所有的用户
+     * 查询所表中第一条数据
      */
     @Query("SELECT * FROM user limit 0,1 ")
     LiveData<UserEntity> getTopOne();
+
+
     /**
      * 根据ID查询某个用户
+     */
+    @Query("SELECT * FROM user WHERE id = :id")
+    LiveData<UserEntity> getUserByIds(int id);
+
+    /**
+     * 根据ID查询某些用户
      *
      * @param userIds 用户ID
      * @return 用户
@@ -52,7 +62,7 @@ public interface UserDao {
      * @param userEntities 要添加用户
      */
     @Insert
-    void insertAll(UserEntity... userEntities);
+    void insertAll(UserEntity...userEntities);
 
     /**
      * 删除某个用户

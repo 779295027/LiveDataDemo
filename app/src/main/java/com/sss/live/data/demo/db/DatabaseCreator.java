@@ -10,6 +10,8 @@ import android.util.Log;
 
 import com.sss.live.data.demo.db.entity.UserEntity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -104,12 +106,22 @@ public class DatabaseCreator {
     }
 
     private AppDatabase initData(AppDatabase appDatabase) {
+
         UserEntity userEntity = new UserEntity();
+        userEntity.setId(0);
         userEntity.setFirstName("名");
         userEntity.setLastName("姓");
+        UserEntity userEntity2 = new UserEntity();
+        userEntity2.setId(1);
+        userEntity2.setFirstName("名1");
+        userEntity2.setLastName("姓1");
+        UserEntity userEntity3 = new UserEntity();
+        userEntity3.setFirstName("名2");
+        userEntity3.setLastName("姓2");
+        userEntity3.setId(2);
         appDatabase.beginTransaction();
         try {
-            appDatabase.userDao().insertAll(userEntity);
+            appDatabase.userDao().insertAll(userEntity,userEntity2,userEntity3);
             appDatabase.setTransactionSuccessful();
         } finally {
             appDatabase.endTransaction();
